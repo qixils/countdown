@@ -73,6 +73,10 @@
 
 <svelte:head>
     <link href="https://fonts.googleapis.com/css2?family={font}&display=swap" rel="stylesheet">
+    <title>Countdown Timer</title>
+    <meta property="og:title" content="Countdown Timer">
+    <meta property="og:description" content="A simple search parameter driven countdown timer.">
+    <meta name="description" content="A simple search parameter driven countdown timer.">
 </svelte:head>
 
 <main style="font-size: {size}; font-family: '{font.replace('+', ' ')}', monospace; justify-content: {vert}; color: {color};">
