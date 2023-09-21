@@ -1,7 +1,5 @@
 <script lang="ts">
     import { page } from '$app/stores';
-    let horiz: string = $page.url.searchParams.get('horiz') || 'center'
-    let vert: string = $page.url.searchParams.get('vert') || 'center';
     let font: string = $page.url.searchParams.get('font') || "Roboto+Mono";
     let size: string = $page.url.searchParams.get('size') || "6em";
     let color: string = $page.url.searchParams.get('color') || "black";
@@ -79,8 +77,8 @@
     <meta name="description" content="A simple search parameter driven countdown timer.">
 </svelte:head>
 
-<main style="font-size: {size}; font-family: '{font.replace('+', ' ')}', monospace; justify-content: {vert}; color: {color};">
-    <div style="text-align: {horiz};">
+<main style="font-size: {size}; font-family: '{font.replace('+', ' ')}', monospace; color: {color};">
+    <div>
         {#if text != null}
             <p>{text}</p>
         {/if}
@@ -92,6 +90,8 @@
     main {
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        text-align: center;
         height: 100vh;
         width: 100vw;
         margin: 0;
