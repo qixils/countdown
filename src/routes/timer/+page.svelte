@@ -5,11 +5,16 @@
     let color: string = $page.url.searchParams.get('color') || "black";
     let text: string | null = $page.url.searchParams.get('text');
 
-    let duration: number = parseInt($page.url.searchParams.get('duration') || '0');
-    if (duration == 0) {
-        let to = parseInt($page.url.searchParams.get('to') || '0');
-        duration = Math.round(to - (Date.now()/1000));
+    let to = parseInt($page.url.searchParams.get('to') || '0');
+    if (to == 0) {
+        to = Math.round((Date.now()/1000) + parseInt($page.url.searchParams.get('duration') || '0'));
     }
+
+    function getDuration(): number {
+        return Math.round(to - (Date.now()/1000));
+    }
+
+    let duration = getDuration();
 
     // TODO: this is dumb lol
     let seconds: number = 1;
@@ -65,7 +70,7 @@
     }
 
     setInterval(() => {
-        duration = Math.max(0, duration-1);
+        duration = getDuration();
     }, 1000);
 </script>
 
