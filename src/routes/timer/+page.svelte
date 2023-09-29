@@ -11,7 +11,7 @@
     }
 
     function getDuration(): number {
-        return Math.round(to - (Date.now()/1000));
+        return Math.max(0, Math.round(to - (Date.now()/1000)));
     }
 
     let duration = getDuration();
